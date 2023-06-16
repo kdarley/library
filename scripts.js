@@ -18,57 +18,76 @@ function addBookToLibrary(title, genre, author, pages, read){
 }
 
 // add two sample books
-addBookToLibrary("fake book 1", "autobiography", "kev", 12, false)
+addBookToLibrary("fake book 1", "autobiography", "kev", 12, true)
 addBookToLibrary("fake book 2", "novel", "jake", 412, false)
 
 // add book to table 
 function displayBooks(){
     // for each book in library
-    for (i=0; i<myLibrary.length; i++){
+    for (let i=0; i<myLibrary.length; i++){
         // create a table row (tr)
         row = document.createElement('tr')
         console.log(myLibrary[i])
             // for each book descriptor 
-            for (j in myLibrary[i]){
-                if (j == "read"){//we want read to be a button
-                    continue
-                }
-                // create a row cell (td)
-                cell = document.createElement('td')
-                // add the descriptor to the td body
-                cell.textContent = myLibrary[i][j]
-                // add the td to the tr
-                row.appendChild(cell)
-
-                console.log(j) // key
-                // console.log(myLibrary[i][j]) // value
+        for (let j in myLibrary[i]){
+            if (j == "read"){//we want read to be a button
+                continue
             }
-            // add read button
-            readButton = document.createElement('button')
-            readButton.textContent='read'
+            // create a row cell (td)
+            cell = document.createElement('td')
+            // add the descriptor to the td body
+            cell.textContent = myLibrary[i][j]
+            // add the td to the tr
+            row.appendChild(cell)
 
-            readCell = document.createElement('td')
-            readCell.appendChild(readButton)
-            row.append(readCell)
+            console.log(j) // key
+            // console.log(myLibrary[i][j]) // value
+        }
+        // add read button
+        let readButton = document.createElement('button')
+        console.log(myLibrary[i]["read"])
+        if (myLibrary[i]["read"] == false){
+            read = 'unread'
+        } else {
+            read = 'read'
+        }
+        readButton.textContent = read
 
-            // add delete button
-            delButton = document.createElement('button')
-            delButton.textContent = 'delete'
-            delButton.setAttribute("id", `delete-button-${i}`)
-            delButton.addEventListener('click', () =>{
-                console.log("test")
-                // remove from array based on index
-                myLibrary.pop(i)
+        readButton.addEventListener('click', () =>{
+            // if clicked check if value is true or false and change it to the opposite
+            console.log(myLibrary[i]["read"])
+            if (myLibrary[i]["read"] == true){
+                myLibrary[i]["read"] = false
+                readButton.textContent = "unread"
+            } else {
+                myLibrary[i]["read"] = true
+                readButton.textContent = "read"
+            }
 
-                deleteBooks()
+        })
 
-                // add elements back into tbody
-                displayBooks()           
-            })
-            delCell = document.createElement('td')
-            delCell.appendChild(delButton)
+        readCell = document.createElement('td')
+        readCell.appendChild(readButton)
+        row.append(readCell)
 
-            row.appendChild(delCell)
+        // add delete button
+        delButton = document.createElement('button')
+        delButton.textContent = 'delete'
+        delButton.setAttribute("id", `delete-button-${i}`)
+        delButton.addEventListener('click', () => {
+            console.log(i)
+            // remove from array based on index
+            myLibrary.pop(i)
+
+            deleteBooks()
+
+            // add elements back into tbody
+            displayBooks()           
+        })
+        delCell = document.createElement('td')
+        delCell.appendChild(delButton)
+
+        row.appendChild(delCell)
 
 
         // add the table row to the table
@@ -99,7 +118,8 @@ function submitClick(event) {
     let genre = document.getElementById("genre").value
     let author = document.getElementById("author").value
     let pages = document.getElementById("pages").value
-    let read = document.getElementById("read").value
+
+    let read = (document.getElementById("read").value === "true") // this parses a string to boolean
 
     addBookToLibrary(title, genre, author, pages, read);
     // clear form
