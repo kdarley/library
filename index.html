@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Library</title>
+</head>
+<body>
+    <h1>Add book to Library.</h1>
+    <div>
+        <form action="" method="post" class="add-book-form">
+            <div class="inputs">
+                <div class = "form-row">
+                    <label for="title" class="form-text">Title</label>
+                    <input id="title" name="title" type="text">
+                </div>
+                <div class = "form-row">
+                    <label for="genre" class="form-text">Genre</label>
+                    <input id="genre" name="genre" type="text">
+                </div>
+                <div class = "form-row">
+                    <label for="author" class="form-text">Author</label>
+                    <input id="author" name="author" type="text">
+                </div>
+                <div class = "form-row">
+                    <label for="pages" class="form-text">Pages</label>
+                    <input id="pages" name="pages" type="number" min="1">
+                </div>
+                <div class = "form-row">
+                    <label for="read" class="form-text">Read</label>
+                    <select id="read" name="read" required>
+                        <option value="" disabled selected hidden>Select</option>
+                        <option value="false">Not Read</option>
+                        <option value="true">Read</option>
+                    </select>
+                </div>
+                <div class = "form-row">
+                    <button id="submit-button">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <h1>This is a library!</h1>
+    <div>
+        <table>
+            <caption>A library of books</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Read</th>
+                </tr>
+            </thead>
+            <tbody>
+                    
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>
