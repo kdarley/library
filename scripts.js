@@ -72,8 +72,9 @@ function displayBooks(){
 
         // add delete button
         delButton = document.createElement('button')
-        delButton.textContent = 'delete'
+        delButton.textContent = 'X'
         delButton.setAttribute("id", `delete-button-${i}`)
+        delButton.classList.add('delete-button')
         delButton.addEventListener('click', () => {
             // console.log(i)
             // remove from array based on index
