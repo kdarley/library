@@ -1,0 +1,132 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: gray;
+
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-form-container {
+    /* display: none; */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(211, 211, 211, 0.75);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    background-color: white;
+
+    margin: auto;
+
+    padding: 1.5rem;
+    width: 80%;
+    max-width: 30rem;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.add-book-form, .form-header {
+    padding: 1.5rem;
+}
+
+.form-close-button {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+
+    content: 'X';
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    border-style: none ;
+    background-color:rgba(0, 0, 0, 0);    
+
+    color: gray;
+}
+
+.form-close-button:hover {
+    color: black;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: red; */
+    /* padding: 32px; */
+
+
+}
+
+.form-header {
+    /* background-color: aqua; */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    /* padding: 32px; */
+}
+
+.form-row {
+    display: flex;
+    width: 300px;
+    padding-right: 10px;
+    justify-content: space-between;
+    padding-bottom: 16px;
+}
+
+select {
+    width: 177px;
+    height: initial;
+}
+
+button#submit-button {
+    margin-top: 20px;
+    padding: 8px 40px;
+
+    border: solid;
+    
+    border-width: 0.1rem;
+    border-radius: 3px;
+}
+
+button#submit-button:hover {
+    border-color:rgba(0, 0, 0, 0);
+    border-width: 0.1rem;
+}
+
+button#submit-button:active {
+    border: solid;
+    border-width: 0.1rem;
+}
+
+div.form-row:last-child {
+    /* background-color: red; */
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+}

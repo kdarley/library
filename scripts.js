@@ -27,7 +27,7 @@ function displayBooks(){
     for (let i=0; i<myLibrary.length; i++){
         // create a table row (tr)
         row = document.createElement('tr')
-        console.log(myLibrary[i])
+        // console.log(myLibrary[i])
             // for each book descriptor 
         for (let j in myLibrary[i]){
             if (j == "read"){//we want read to be a button
@@ -40,12 +40,12 @@ function displayBooks(){
             // add the td to the tr
             row.appendChild(cell)
 
-            console.log(j) // key
+            // console.log(j) // key
             // console.log(myLibrary[i][j]) // value
         }
         // add read button
         let readButton = document.createElement('button')
-        console.log(myLibrary[i]["read"])
+        // console.log(myLibrary[i]["read"])
         if (myLibrary[i]["read"] == false){
             read = 'unread'
         } else {
@@ -55,7 +55,7 @@ function displayBooks(){
 
         readButton.addEventListener('click', () =>{
             // if clicked check if value is true or false and change it to the opposite
-            console.log(myLibrary[i]["read"])
+            // console.log(myLibrary[i]["read"])
             if (myLibrary[i]["read"] == true){
                 myLibrary[i]["read"] = false
                 readButton.textContent = "unread"
@@ -75,7 +75,7 @@ function displayBooks(){
         delButton.textContent = 'delete'
         delButton.setAttribute("id", `delete-button-${i}`)
         delButton.addEventListener('click', () => {
-            console.log(i)
+            // console.log(i)
             // remove from array based on index
             myLibrary.pop(i)
 
@@ -94,7 +94,7 @@ function displayBooks(){
         table = document.querySelector("tbody")
         table.appendChild(row)
     }
-    console.log(table)
+    // console.log(table)
 }
 
 function deleteBooks(){
@@ -130,8 +130,31 @@ function submitClick(event) {
 
     // add elements back into tbody
     displayBooks()
+
+    removeForm()
 }
 
 
+
+function removeForm(){
+    const removeForm = document.querySelector(".popup-form-container")
+    removeForm.style.display = "none"
+}
+
+function addForm(){
+    const addForm = document.querySelector(".popup-form-container")
+    addForm.style.display = "flex"
+}
+
+const addBookButton = document.querySelector("button.add-book")
+
+addBookButton.addEventListener("click", ()=> {
+    addForm();
+})
+
+const formClose = document.querySelector("button.form-close-button")
+formClose.addEventListener("click", ()=> {
+    removeForm();
+})
 
 displayBooks()

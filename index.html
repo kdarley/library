@@ -6,46 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <title>Library</title>
 </head>
 <body>
-    <h1>Add book to Library.</h1>
-    <div>
-        <form action="" method="post" class="add-book-form">
-            <div class="inputs">
-                <div class = "form-row">
-                    <label for="title" class="form-text">Title</label>
-                    <input id="title" name="title" type="text">
+    <div class="popup-form-container">
+        <div class="form-container">
+            <button class="form-close-button">X</button>
+            <h1 class="form-header">Add book to Library.</h1>
+            <form action="" method="post" class="add-book-form">
+                <div class="inputs">
+                    <div class = "form-row">
+                        <label for="title" class="form-text">Title</label>
+                        <input id="title" name="title" type="text" required>
+                    </div>
+                    <div class = "form-row">
+                        <label for="genre" class="form-text">Genre</label>
+                        <input id="genre" name="genre" type="text" required>
+                    </div>
+                    <div class = "form-row">
+                        <label for="author" class="form-text">Author</label>
+                        <input id="author" name="author" type="text" required>
+                    </div>
+                    <div class = "form-row">
+                        <label for="pages" class="form-text">Pages</label>
+                        <input id="pages" name="pages" type="number" min="1" required>
+                    </div>
+                    <div class = "form-row">
+                        <label for="read" class="form-text">Read</label>
+                        <select id="read" name="read" required>
+                            <option value="" disabled selected hidden>Select</option>
+                            <option value="false">Not Read</option>
+                            <option value="true">Read</option>
+                        </select>
+                    </div>
+                    <div class = "form-row">
+                        <button id="submit-button">Submit</button>
+                    </div>
                 </div>
-                <div class = "form-row">
-                    <label for="genre" class="form-text">Genre</label>
-                    <input id="genre" name="genre" type="text">
-                </div>
-                <div class = "form-row">
-                    <label for="author" class="form-text">Author</label>
-                    <input id="author" name="author" type="text">
-                </div>
-                <div class = "form-row">
-                    <label for="pages" class="form-text">Pages</label>
-                    <input id="pages" name="pages" type="number" min="1">
-                </div>
-                <div class = "form-row">
-                    <label for="read" class="form-text">Read</label>
-                    <select id="read" name="read" required>
-                        <option value="" disabled selected hidden>Select</option>
-                        <option value="false">Not Read</option>
-                        <option value="true">Read</option>
-                    </select>
-                </div>
-                <div class = "form-row">
-                    <button id="submit-button">Submit</button>
-                </div>
-            </div>
-        </form>
+            </form>           
+        </div>    
+        
     </div>
-    <h1>This is a library!</h1>
-    <div>
+    
+    <div class="library-container">
+        <h1>Lethe's Library!</h1>
+        <h3>A way to keep track of your books, if only for a little while.</h3>
+        <button class="add-book">Add Book</button>
         <table>
             <caption>A library of books</caption>
             <thead>
